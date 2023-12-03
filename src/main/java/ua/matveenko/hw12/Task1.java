@@ -22,7 +22,7 @@ public class Task1 {
         }
     }
 
-    public static void writeText(File file, String text) {
+    private static void writeText(File file, String text) {
         try (FileWriter fileWriter = new FileWriter(file, true)) {
             if (Objects.equals(text, NEXT)) {
                 fileWriter.write(System.lineSeparator());
@@ -32,7 +32,7 @@ public class Task1 {
         } catch (FileNotFoundException e) {
             System.out.println("File not find");
         } catch (IOException e) {
-            System.out.println("error while reading to file ");
+            System.out.println("error while writing to file ");
         }
     }
 }
