@@ -11,22 +11,24 @@ public class Task3 {
         List<String> strings = new ArrayList<>();
         List<String> line = new LinkedList<>();
         addElementsList(strings);
-        System.out.println(strings.size());
         addElementsList(line);
-        System.out.println(line.size());
         getRandomElements(strings);
         getRandomElements(line);
     }
 
     public static void addElementsList(List<String> strings) {
+        long start = System.currentTimeMillis();
         for (int i = 0; i < 100000; i++) {
             strings.add(Integer.toString(i));
         }
+        long finish = System.currentTimeMillis();
+        long timeElapsed = finish - start;
+        System.out.println("Time : " + timeElapsed);
     }
 
     public static void getRandomElements(List<String> strings) {
         Random rand = new Random();
-         long start = System.currentTimeMillis();
+        long start = System.currentTimeMillis();
         for (int i = 0; i < 100000; i++) {
             int index = rand.nextInt(strings.size());
             strings.get(index);
