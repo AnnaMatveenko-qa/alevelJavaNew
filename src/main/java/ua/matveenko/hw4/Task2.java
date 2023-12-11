@@ -19,23 +19,22 @@ public class Task2 {
         }
     }
 
-    public static boolean checkNum(int number) {
-        boolean check = true;
-        for (int i = 2; i < number; i++) {
-            if (number % i == 0) {
-                check = false;
+    private static boolean checkNum(int number) {
+        boolean isPrime = number > 1;
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number <= 1 || number % 2 == 0 || number % 3 == 0 || number % i == 0) {
+                isPrime = false;
                 break;
             }
         }
-        return check;
+        return isPrime;
     }
 
 
-    public static int numberOfPrimeNumbers(int[] array) {
+    private static int numberOfPrimeNumbers(int[] array) {
         int quantityOfNumbers = 0;
         for (int i : array) {
-            boolean check = checkNum(i);
-            if (check && array[i] != 1) {
+            if (checkNum(i)) {
                 quantityOfNumbers++;
             }
         }
